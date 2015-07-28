@@ -2,20 +2,25 @@
 require_once("Produto.php");
 require_once("conexao.php");
 
+$pesquisa = $_POST['pesquisa'];
+
 $produto = new Produto($cnx);
+
+
+
 ?>
 
-    <div class="container">
-        <!-- Title -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h3>Produtos</h3>
-            </div>
+<div class="container">
+    <!-- Title -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Produtos</h3>
         </div>
+    </div>
 
-        <!--### PRODUTOS ###-->
-        <?php
-            foreach($produto->listar() as $p){
+    <!--### PRODUTOS ###-->
+    <?php
+    foreach($produto->pesquisa($pesquisa) as $p){
         ?>
         <div class="col text-center">
 
@@ -38,7 +43,7 @@ $produto = new Produto($cnx);
                 </div>
             </div>
         </div>
-            <?php
-            }
-        ?>
-    </div>
+    <?php
+    }
+    ?>
+</div>

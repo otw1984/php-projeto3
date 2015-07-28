@@ -23,9 +23,9 @@
                 <li><a href="contato">CONTATO</a></li>
             </ul>
 
-            <form class="navbar-form" role="search">
+            <form class="navbar-form" role="search" action="pesquisa" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control pull-right" style="width: 300px; margin-right: 35px, border: 1px solid black; background-color: #e5e5e5;" placeholder="Procure nossos produtos">
+                    <input type="text" name="pesquisa" class="form-control pull-right" style="width: 300px; margin-right: 35px, border: 1px solid black; background-color: #e5e5e5;" placeholder="Procure nossos produtos">
 						<span class="input-group-btn">
 							<button type="submit" class="btn btn-default">
 								<span class="glyphicon glyphicon-search">

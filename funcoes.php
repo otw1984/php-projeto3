@@ -1,7 +1,7 @@
 <?php
 
 function paginas(){
-  $vp = ['home', 'empresa', 'produtos', 'servicos', 'contato'];
+  $vp = ['home', 'empresa', 'produtos', 'servicos', 'contato','pesquisa'];
   $rota = ltrim(filter_input(INPUT_SERVER, 'REQUEST_URI'), "/");
 
 

@@ -12,6 +12,20 @@ class Produto {
         $this->db = $db;
     }
 
+    //PESQUISA
+    public function pesquisa($pesquisa){
+        $query = "SELECT * FROM produto WHERE nome LIKE '%{$pesquisa}%' OR descricao LIKE '%{$pesquisa}%'";
+        $stmt = $this->db->query($query);
+        //$query = "SELECT * FROM produto WHERE nome LIKE \"%:pesquisa%\" OR descricao LIKE \"%:pesquisa%\"";
+        //$stmt = $this->db->prepare($query);
+
+        //$stmt->bindValue(":pesquisa", $pesquisa);
+        //$stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+    }
+
     //LISTAR
     public function listar(){
         $query = "SELECT * FROM produto";
@@ -20,7 +34,7 @@ class Produto {
     }
 
     //GETTERS AND SETTERS
-    public function getDb()    {
+    public function getDb(){
         return $this->db;
     }
 
