@@ -14,13 +14,15 @@ class Produto {
 
     //PESQUISA
     public function pesquisa($pesquisa){
-        $query = "SELECT * FROM produto WHERE nome LIKE '%{$pesquisa}%' OR descricao LIKE '%{$pesquisa}%'";
-        $stmt = $this->db->query($query);
-        //$query = "SELECT * FROM produto WHERE nome LIKE \"%:pesquisa%\" OR descricao LIKE \"%:pesquisa%\"";
-        //$stmt = $this->db->prepare($query);
+        //$query = "SELECT * FROM produto WHERE nome LIKE '%{$pesquisa}%' OR descricao LIKE '%{$pesquisa}%'";
+        //$stmt = $this->db->query($query);
+        $query = "SELECT * FROM produto WHERE nome LIKE :pesquisa OR descricao LIKE :pesquisa";
+        $stmt = $this->db->prepare($query);
 
-        //$stmt->bindValue(":pesquisa", $pesquisa);
-        //$stmt->execute();
+        $pesquisa = '%'. $pesquisa .'%';
+
+        $stmt->bindValue(":pesquisa", $pesquisa);
+        $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
